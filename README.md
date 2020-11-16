@@ -1,69 +1,46 @@
-Devias Kit Pro - Client & Admin Dashboard
-=========================================
+# React project starter :zap:
+A boilerplate with all you need to start a react project.
+
+## Using Devias Kit Pro - Client & Admin Dashboard Template
 
 ![Material App](https://themes-backend.material-ui.com/wp-content/uploads/2019/08/react-material-kit-3.jpg)
 
-
 A professional kit that comes with plenty of ready-to-use Material-UI© components developed with one common goal in mind, help you build faster & beautiful applications. Each component is fully customizable, responsive and easy to integrate.
 
-Feautures
----------
+## Libs :books:
 
-32 Pages Examples
-Fully Responsive
-Built with React Hooks API
-Redux as State Manager
-Routing System
-Light Functionality Components
-Ready-to-deploy folder structure
-Complete User Flows
-Easy Color Changes
-Consistent Updates
+**axios:** Promise based HTTP client   
+**chart.js:** Simple yet flexible JavaScript charting for designers & developers  
+**draft.js:** A JavaScript rich text editor framework  
+**fullcalendar:** FullCalendar is a full-sized drag & drop event calendar   
+**material-ui:** React components for faster and easier web development    
+**prismjs:** A lightweight, robust, elegant syntax highlighting library. It's a spin-off project from Dabblet  
+**react:** A JavaScript library for creating user interfaces  
+**redux:** A predictable state container for JavaScript apps.  
 
-Page Examples
--------------
+## Project structure folder :file_folder:
 
-Overview
-Default Dashboard Page
-Analytics Dashboard Page
-User Management List Page
-User Management Summary Page
-User Management Invoices Page
-User Management Logs Page
-Product Management List Page
-Order Management List Page
-Order Management Details Page
-Social Feed Page
-User Timeline Page
-User Connections Page
-User Projects Page
-User Reviews Page
-Project List Page
-Project Create Page
-Project Overview Page
-Project Files Page
-Project Activity Page
-Project Subscribers Page
-Invoice Details Page
-KanbanBoard Application
-Mail Application
-Chat Application
-Calendar Application
-Settings Page
-Register Page
-Login Page
-Error 401 Page
-Error 404 Page
-Error 500 Page
+- src/components: Reusable components
+- src/layouts: Layout definition 
+- src/mixins: Helper functions
+- src/mock: Pages mockup
+- src/redux: Dedicated to redux store, reducers and actions
+- src/theme: Theme styles
+- src/utils: Utility functions
+- src/views: Pages that should be used on Layout
 
-Built with
-----------
+## Usage :rocket:
 
-React
-Material-UI v4
-Redux
-DraftJS
-ChartJS
-PrismJS
-React Markdown
-React Full Calendar
+```
+    npm install
+```
+
+After install you can run: 
+
+```
+    npm run start
+```
+
+---
+
+Make with :heart: by [Lucas Ferreira](https://github.com/lucasfgs)
