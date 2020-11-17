@@ -26,6 +26,7 @@ const history = createBrowserHistory();
 const store = configureStore();
 
 const App = () => {
+    console.log(process.env.PUBLIC_URL);
     return (
         <StoreProvider store={store}>
             <ThemeProvider theme={theme}>

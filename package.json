@@ -1,11 +1,11 @@
 {
-  "name": "devias-material-kit-pro",
-  "author": "DeviasIO",
-  "email": "contact@devias.io",
+  "name": "react-starter",
+  "author": "Lucas Ferreira",
+  "email": "lucsferreira.dev@gmail.com",
   "licence": "UNLICENSED",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "http://dev-react-template.com.br/",
+  "homepage": "dev-react-template.com.br",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -21,6 +21,7 @@
       "not dead",
       "not op_mini all"
     ],
+
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

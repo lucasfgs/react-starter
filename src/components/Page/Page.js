@@ -1,30 +1,30 @@
 /* eslint-disable no-undef */
-import React, { useEffect } from 'react'
-import { Helmet } from 'react-helmet'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
 
-import useRouter from 'utils/useRouter'
+import useRouter from 'utils/useRouter';
 
-const NODE_ENV = process.env.NODE_ENV
-const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID
+const NODE_ENV = process.env.NODE_ENV;
+const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID;
 
-const Page = (props) => {
-    const { title, children, ...rest } = props
+const Page = props => {
+    const { title, children, ...rest } = props;
 
-    const router = useRouter()
+    const router = useRouter();
 
     useEffect(() => {
         if (NODE_ENV !== 'production') {
-            return
+            return;
         }
 
         if (window.gtag) {
             window.gtag('config', GA_MEASUREMENT_ID, {
                 page_path: router.location.pathname,
-                page_name: title,
-            })
+                page_name: title
+            });
         }
-    }, [title, router])
+    }, [title, router]);
 
     return (
         <div {...rest}>
@@ -33,12 +33,12 @@ const Page = (props) => {
             </Helmet>
             {children}
         </div>
-    )
-}
+    );
+};
 
 Page.propTypes = {
     children: PropTypes.node,
-    title: PropTypes.string,
-}
+    title: PropTypes.string
+};
 
-export default Page
+export default Page;

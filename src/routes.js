@@ -1,213 +1,210 @@
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/display-name */
-import React, { lazy } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { lazy } from 'react';
+import { Redirect } from 'react-router-dom';
 
-import AuthLayout from './layouts/Auth'
-import ErrorLayout from './layouts/Error'
-import DashboardLayout from './layouts/Dashboard'
-import DashboardAnalyticsView from './views/DashboardAnalytics'
-import DashboardDefaultView from './views/DashboardDefault'
-import OverviewView from './views/Overview'
-import PresentationView from './views/Presentation'
+import AuthLayout from './layouts/Auth';
+import ErrorLayout from './layouts/Error';
+import DashboardLayout from './layouts/Dashboard';
+import DashboardAnalyticsView from './views/DashboardAnalytics';
+import DashboardDefaultView from './views/DashboardDefault';
+import OverviewView from './views/Overview';
+import PresentationView from './views/Presentation';
+import { BASEURL } from './config';
 
 const routes = [
     {
-        path: '/',
+        path: `${BASEURL}/`,
         exact: true,
-        component: () => <Redirect to="/presentation" />,
+        component: () => <Redirect to={`${BASEURL}/presentation`} />
     },
     {
-        path: '/auth',
+        path: `${BASEURL}/auth`,
         component: AuthLayout,
         routes: [
             {
-                path: '/auth/login',
+                path: `${BASEURL}/auth/login`,
                 exact: true,
-                component: lazy(() => import('views/Login')),
+                component: lazy(() => import('views/Login'))
             },
             {
-                path: '/auth/register',
+                path: `${BASEURL}/auth/register`,
                 exact: true,
-                component: lazy(() => import('views/Register')),
+                component: lazy(() => import('views/Register'))
             },
             {
-                component: () => <Redirect to="/errors/error-404" />,
-            },
-        ],
+                component: () => <Redirect to={`${BASEURL}/errors/error-404`} />
+            }
+        ]
     },
     {
-        path: '/errors',
+        path: `${BASEURL}/errors`,
         component: ErrorLayout,
         routes: [
             {
-                path: '/errors/error-401',
+                path: `${BASEURL}/errors/error-401`,
                 exact: true,
-                component: lazy(() => import('views/Error401')),
+                component: lazy(() => import('views/Error401'))
             },
             {
-                path: '/errors/error-404',
+                path: `${BASEURL}/errors/error-404`,
                 exact: true,
-                component: lazy(() => import('views/Error404')),
+                component: lazy(() => import('views/Error404'))
             },
             {
-                path: '/errors/error-500',
+                path: `${BASEURL}/errors/error-500`,
                 exact: true,
-                component: lazy(() => import('views/Error500')),
+                component: lazy(() => import('views/Error500'))
             },
             {
-                component: () => <Redirect to="/errors/error-404" />,
-            },
-        ],
+                component: () => <Redirect to={`${BASEURL}/errors/error-404`} />
+            }
+        ]
     },
     {
-        route: '*',
+        route: `${BASEURL}/*`,
         component: DashboardLayout,
         routes: [
             {
-                path: '/calendar',
+                path: `${BASEURL}/calendar`,
                 exact: true,
-                component: lazy(() => import('views/Calendar')),
+                component: lazy(() => import('views/Calendar'))
             },
             {
-                path: '/changelog',
+                path: `${BASEURL}/changelog`,
                 exact: true,
-                component: lazy(() => import('views/Changelog')),
+                component: lazy(() => import('views/Changelog'))
             },
             {
-                path: '/chat',
+                path: `${BASEURL}/chat`,
                 exact: true,
-                component: lazy(() => import('views/Chat')),
+                component: lazy(() => import('views/Chat'))
             },
             {
-                path: '/chat/:id',
+                path: `${BASEURL}/chat/:id`,
                 exact: true,
-                component: lazy(() => import('views/Chat')),
+                component: lazy(() => import('views/Chat'))
             },
             {
-                path: '/dashboards/analytics',
+                path: `${BASEURL}/dashboards/analytics`,
                 exact: true,
-                component: DashboardAnalyticsView,
+                component: DashboardAnalyticsView
             },
             {
-                path: '/dashboards/default',
+                path: `${BASEURL}/dashboards/default`,
                 exact: true,
-                component: DashboardDefaultView,
+                component: DashboardDefaultView
             },
             {
-                path: '/invoices/:id',
+                path: `${BASEURL}/invoices/:id`,
                 exact: true,
-                component: lazy(() => import('views/InvoiceDetails')),
+                component: lazy(() => import('views/InvoiceDetails'))
             },
             {
-                path: '/kanban-board',
+                path: `${BASEURL}/kanban-board`,
                 exact: true,
-                component: lazy(() => import('views/KanbanBoard')),
+                component: lazy(() => import('views/KanbanBoard'))
             },
             {
-                path: '/mail',
+                path: `${BASEURL}/mail`,
                 exact: true,
-                component: lazy(() => import('views/Mail')),
+                component: lazy(() => import('views/Mail'))
             },
             {
-                path: '/management/customers',
+                path: `${BASEURL}/management/customers`,
                 exact: true,
-                component: lazy(() => import('views/CustomerManagementList')),
+                component: lazy(() => import('views/CustomerManagementList'))
             },
             {
-                path: '/management/customers/:id',
+                path: `${BASEURL}/management/customers/:id`,
                 exact: true,
-                component: lazy(() =>
-                    import('views/CustomerManagementDetails')
-                ),
+                component: lazy(() => import('views/CustomerManagementDetails'))
             },
             {
-                path: '/management/customers/:id/:tab',
+                path: `${BASEURL}/management/customers/:id/:tab`,
                 exact: true,
-                component: lazy(() =>
-                    import('views/CustomerManagementDetails')
-                ),
+                component: lazy(() => import('views/CustomerManagementDetails'))
             },
             {
-                path: '/management/projects',
+                path: `${BASEURL}/management/projects`,
                 exact: true,
-                component: lazy(() => import('views/ProjectManagementList')),
+                component: lazy(() => import('views/ProjectManagementList'))
             },
             {
-                path: '/management/orders',
+                path: `${BASEURL}/management/orders`,
                 exact: true,
-                component: lazy(() => import('views/OrderManagementList')),
+                component: lazy(() => import('views/OrderManagementList'))
             },
             {
-                path: '/management/orders/:id',
+                path: `${BASEURL}/management/orders/:id`,
                 exact: true,
-                component: lazy(() => import('views/OrderManagementDetails')),
+                component: lazy(() => import('views/OrderManagementDetails'))
             },
             {
-                path: '/overview',
+                path: `${BASEURL}/overview`,
                 exact: true,
-                component: OverviewView,
+                component: OverviewView
             },
             {
-                path: '/presentation',
+                path: `${BASEURL}/presentation`,
                 exact: true,
-                component: PresentationView,
+                component: PresentationView
             },
             {
-                path: '/profile/:id',
+                path: `${BASEURL}/profile/:id`,
                 exact: true,
-                component: lazy(() => import('views/Profile')),
+                component: lazy(() => import('views/Profile'))
             },
             {
-                path: '/profile/:id/:tab',
+                path: `${BASEURL}/profile/:id/:tab`,
                 exact: true,
-                component: lazy(() => import('views/Profile')),
+                component: lazy(() => import('views/Profile'))
             },
             {
-                path: '/projects/create',
+                path: `${BASEURL}/projects/create`,
                 exact: true,
-                component: lazy(() => import('views/ProjectCreate')),
+                component: lazy(() => import('views/ProjectCreate'))
             },
             {
-                path: '/projects/:id',
+                path: `${BASEURL}/projects/:id`,
                 exact: true,
-                component: lazy(() => import('views/ProjectDetails')),
+                component: lazy(() => import('views/ProjectDetails'))
             },
             {
-                path: '/projects/:id/:tab',
+                path: `${BASEURL}/projects/:id/:tab`,
                 exact: true,
-                component: lazy(() => import('views/ProjectDetails')),
+                component: lazy(() => import('views/ProjectDetails'))
             },
             {
-                path: '/projects',
+                path: `${BASEURL}/projects`,
                 exact: true,
-                component: lazy(() => import('views/ProjectList')),
+                component: lazy(() => import('views/ProjectList'))
             },
             {
-                path: '/settings',
+                path: `${BASEURL}/settings`,
                 exact: true,
-                component: lazy(() => import('views/Settings')),
+                component: lazy(() => import('views/Settings'))
             },
             {
-                path: '/settings/:tab',
+                path: `${BASEURL}/settings/:tab`,
                 exact: true,
-                component: lazy(() => import('views/Settings')),
+                component: lazy(() => import('views/Settings'))
             },
             {
-                path: '/social-feed',
+                path: `${BASEURL}/social-feed`,
                 exact: true,
-                component: lazy(() => import('views/SocialFeed')),
+                component: lazy(() => import('views/SocialFeed'))
             },
             {
-                path: '/getting-started',
+                path: `${BASEURL}/getting-started`,
                 exact: true,
-                component: lazy(() => import('views/GettingStarted')),
+                component: lazy(() => import('views/GettingStarted'))
             },
             {
-                component: () => <Redirect to="/errors/error-404" />,
-            },
-        ],
-    },
-]
+                component: () => <Redirect to={`${BASEURL}/errors/error-404`} />
+            }
+        ]
+    }
+];
 
-export default routes
+export default routes;
